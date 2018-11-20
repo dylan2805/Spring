@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	
+	<bean id="customer1" class="com.capgemini.beans.Customer">
+		<constructor-arg index="0" value="1"/>
+		<constructor-arg index="1" value="Dylan"/>
+		<constructor-arg index="2" value="10000"/>
+	</bean>
+	
+	<bean id="customer2" class="com.capgemini.beans.Customer">
+		<constructor-arg index="0" value="2"/>
+		<constructor-arg index="1" value="Jaysan"/>
+		<constructor-arg index="2" value="5000"/>
+	</bean>
+	
+	<util:map id="map" key-type="java.lang.Integer" value-type="com.capgemini.beans.Customer" map-class="java.util.HashMap">
+		<entry key="1" value-ref="customer1"/>
+		<entry key="2" value-ref="customer2"/>
+	</util:map>
+	
+	<bean id="repository" class="com.capgemini.repo.Repository">
+		<constructor-arg index="0" ref="map" />
+	</bean>
+	
+	<bean id="service" class="com.capgemini.service.Service">
+	<constructor-arg index="0" ref="repository"/>
+	</bean>
+	
+	
+	
+	<!-- 	<bean id="customer1" class="com.capgemini.beans.Customer">
+		<property name="name" value="Dylan" />
+		<property name="accountNumber" value="1" />
+		<property name="amount" value="9000" />
+	</bean>
+
+	<bean id="customer2" class="com.capgemini.beans.Customer">
+		<property name="name" value="Jaysan" />
+		<property name="accountNumber" value="2" />
+		<property name="amount" value="8000" />
+	</bean> -->
+
+
+	<!-- <bean id="map" class="com.capgemini.beans.Customer">
+		<property name="accounts">
+			<map key-type="java.lang.String"
+				value-type="com.capgemini.beans.Customer">
+				<entry key="1" value-ref="customer1" />
+				<entry key="2" value-ref="customer2"/>
+			</map>
+		</property>
+	</bean> -->
+
+
+
+</beans>
