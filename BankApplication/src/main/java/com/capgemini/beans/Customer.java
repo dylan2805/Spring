@@ -7,16 +7,8 @@ public class Customer {
 	private String accountNumber;
 	private String name;
 	private double amount;
-/*	private HashMap<String, Customer> accounts;
-	
-	public HashMap<String, Customer> getAccounts() {
-		return accounts;
-	}
-	public void setAccounts(HashMap<String, Customer> accounts) {
-		this.accounts = accounts;
-	}*/
-	
-	public Customer(String accountNumber, String name, double amount) {
+
+	public Customer(String name, String accountNumber, double amount) {
 		System.out.println("Customer with 3 parameters");
 		this.accountNumber = accountNumber;
 		this.name = name;
